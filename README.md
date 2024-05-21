@@ -1,2 +1,3 @@
 # kanidm-fedora
-Fedora packaging for kanidm
+
+This repository drives the COPR build for Kanidm.
