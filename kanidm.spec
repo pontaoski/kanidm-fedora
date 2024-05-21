@@ -15,9 +15,6 @@
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
 
-%_disable_source_fetch 0
-
-
 Name:           kanidm
 Version:        1.2.1
 Release:        1%{?dist}
