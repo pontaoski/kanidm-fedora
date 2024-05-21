@@ -106,7 +106,7 @@ install -D -d -m 0755 %{buildroot}%{_datadir}/kanidm
 install -D -d -m 0755 %{buildroot}%{_datadir}/kanidm/docs/
 install -D -d -m 0755 %{buildroot}%{_datadir}/kanidm/ui/
 
-install -m 0755 %{_builddir}/%{name}/target/release/kanidmd %{buildroot}%{_sbindir}/kanidmd
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/kanidmd %{buildroot}%{_sbindir}/kanidmd
 install -m 0755 %{_builddir}/%{name}/target/release/kanidm %{buildroot}%{_bindir}/kanidm
 install -m 0755 %{_builddir}/%{name}/target/release/kanidm-unix %{buildroot}%{_sbindir}/kanidm-unix
 install -m 0755 %{_builddir}/%{name}/target/release/kanidm_ssh_authorizedkeys %{buildroot}%{_sbindir}/kanidm_ssh_authorizedkeys
