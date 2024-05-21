@@ -107,35 +107,35 @@ install -D -d -m 0755 %{buildroot}%{_datadir}/kanidm/docs/
 install -D -d -m 0755 %{buildroot}%{_datadir}/kanidm/ui/
 
 install -m 0755 %{_builddir}/%{name}-%{version}/target/release/kanidmd %{buildroot}%{_sbindir}/kanidmd
-install -m 0755 %{_builddir}/%{name}/target/release/kanidm %{buildroot}%{_bindir}/kanidm
-install -m 0755 %{_builddir}/%{name}/target/release/kanidm-unix %{buildroot}%{_sbindir}/kanidm-unix
-install -m 0755 %{_builddir}/%{name}/target/release/kanidm_ssh_authorizedkeys %{buildroot}%{_sbindir}/kanidm_ssh_authorizedkeys
-install -m 0755 %{_builddir}/%{name}/target/release/kanidm_ssh_authorizedkeys_direct %{buildroot}%{_sbindir}/kanidm_ssh_authorizedkeys_direct
-install -m 0755 %{_builddir}/%{name}/target/release/kanidm_unixd %{buildroot}%{_sbindir}/kanidm_unixd
-install -m 0755 %{_builddir}/%{name}/target/release/kanidm_unixd_tasks %{buildroot}%{_sbindir}/kanidm_unixd_tasks
-install -m 0644 %{_builddir}/%{name}/target/release/libnss_kanidm.so %{buildroot}%{_libdir}/libnss_kanidm.so.2
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/kanidm %{buildroot}%{_bindir}/kanidm
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/kanidm-unix %{buildroot}%{_sbindir}/kanidm-unix
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/kanidm_ssh_authorizedkeys %{buildroot}%{_sbindir}/kanidm_ssh_authorizedkeys
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/kanidm_ssh_authorizedkeys_direct %{buildroot}%{_sbindir}/kanidm_ssh_authorizedkeys_direct
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/kanidm_unixd %{buildroot}%{_sbindir}/kanidm_unixd
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/kanidm_unixd_tasks %{buildroot}%{_sbindir}/kanidm_unixd_tasks
+install -m 0644 %{_builddir}/%{name}-%{version}/target/release/libnss_kanidm.so %{buildroot}%{_libdir}/libnss_kanidm.so.2
 
-install -m 0644 %{_builddir}/%{name}/target/release/libpam_kanidm.so %{buildroot}/%_lib/security/pam_kanidm.so
+install -m 0644 %{_builddir}/%{name}-%{version}/target/release/libpam_kanidm.so %{buildroot}/%_lib/security/pam_kanidm.so
 
-install -m 0644 %{_builddir}/%{name}/platform/opensuse/kanidmd.service %{buildroot}%{_unitdir}/kanidmd.service
-install -m 0644 %{_builddir}/%{name}/platform/opensuse/kanidm-unixd.service %{buildroot}%{_unitdir}/kanidm-unixd.service
-install -m 0644 %{_builddir}/%{name}/platform/opensuse/kanidm-unixd-tasks.service %{buildroot}%{_unitdir}/kanidm-unixd-tasks.service
-install -m 0644 %{_builddir}/%{name}/examples/server.toml %{buildroot}%{configdir}/server.toml
+install -m 0644 %{_builddir}/%{name}-%{version}/platform/opensuse/kanidmd.service %{buildroot}%{_unitdir}/kanidmd.service
+install -m 0644 %{_builddir}/%{name}-%{version}/platform/opensuse/kanidm-unixd.service %{buildroot}%{_unitdir}/kanidm-unixd.service
+install -m 0644 %{_builddir}/%{name}-%{version}/platform/opensuse/kanidm-unixd-tasks.service %{buildroot}%{_unitdir}/kanidm-unixd-tasks.service
+install -m 0644 %{_builddir}/%{name}-%{version}/examples/server.toml %{buildroot}%{configdir}/server.toml
 
-install -m 0755 %{_builddir}/%{name}/target/release/build/completions/_kanidmd   %{buildroot}%{_sysconfdir}/zsh_completion.d/_kanidmd
-install -m 0755 %{_builddir}/%{name}/target/release/build/completions/_kanidm   %{buildroot}%{_sysconfdir}/zsh_completion.d/_kanidm
-install -m 0755 %{_builddir}/%{name}/target/release/build/completions/_kanidm_ssh_authorizedkeys_direct   %{buildroot}%{_sysconfdir}/zsh_completion.d/_kanidm_ssh_authorizedkeys_direct
-install -m 0755 %{_builddir}/%{name}/target/release/build/completions/_kanidm_unix   %{buildroot}%{_sysconfdir}/zsh_completion.d/_kanidm_unix
-install -m 0755 %{_builddir}/%{name}/target/release/build/completions/_kanidm_ssh_authorizedkeys   %{buildroot}%{_sysconfdir}/zsh_completion.d/_kanidm_ssh_authorizedkeys
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/build/completions/_kanidmd   %{buildroot}%{_sysconfdir}/zsh_completion.d/_kanidmd
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/build/completions/_kanidm   %{buildroot}%{_sysconfdir}/zsh_completion.d/_kanidm
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/build/completions/_kanidm_ssh_authorizedkeys_direct   %{buildroot}%{_sysconfdir}/zsh_completion.d/_kanidm_ssh_authorizedkeys_direct
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/build/completions/_kanidm_unix   %{buildroot}%{_sysconfdir}/zsh_completion.d/_kanidm_unix
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/build/completions/_kanidm_ssh_authorizedkeys   %{buildroot}%{_sysconfdir}/zsh_completion.d/_kanidm_ssh_authorizedkeys
 
-install -m 0755 %{_builddir}/%{name}/target/release/build/completions/kanidmd.bash %{buildroot}%{_sysconfdir}/bash_completion.d/kanidmd.sh
-install -m 0755 %{_builddir}/%{name}/target/release/build/completions/kanidm.bash %{buildroot}%{_sysconfdir}/bash_completion.d/kanidm.sh
-install -m 0755 %{_builddir}/%{name}/target/release/build/completions/kanidm_ssh_authorizedkeys_direct.bash %{buildroot}%{_sysconfdir}/bash_completion.d/kanidm_ssh_authorizedkeys_direct.sh
-install -m 0755 %{_builddir}/%{name}/target/release/build/completions/kanidm_unix.bash %{buildroot}%{_sysconfdir}/bash_completion.d/kanidm_unix.sh
-install -m 0755 %{_builddir}/%{name}/target/release/build/completions/kanidm_ssh_authorizedkeys.bash %{buildroot}%{_sysconfdir}/bash_completion.d/kanidm_ssh_authorizedkeys.sh
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/build/completions/kanidmd.bash %{buildroot}%{_sysconfdir}/bash_completion.d/kanidmd.sh
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/build/completions/kanidm.bash %{buildroot}%{_sysconfdir}/bash_completion.d/kanidm.sh
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/build/completions/kanidm_ssh_authorizedkeys_direct.bash %{buildroot}%{_sysconfdir}/bash_completion.d/kanidm_ssh_authorizedkeys_direct.sh
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/build/completions/kanidm_unix.bash %{buildroot}%{_sysconfdir}/bash_completion.d/kanidm_unix.sh
+install -m 0755 %{_builddir}/%{name}-%{version}/target/release/build/completions/kanidm_ssh_authorizedkeys.bash %{buildroot}%{_sysconfdir}/bash_completion.d/kanidm_ssh_authorizedkeys.sh
 
-cp -r %{_builddir}/%{name}/book/src/ %{buildroot}%{_datadir}/kanidm/docs/
-cp -r %{_builddir}/%{name}/server/web_ui/pkg %{buildroot}%{_datadir}/kanidm/ui/pkg
+cp -r %{_builddir}/%{name}-%{version}/book/src/ %{buildroot}%{_datadir}/kanidm/docs/
+cp -r %{_builddir}/%{name}-%{version}/server/web_ui/pkg %{buildroot}%{_datadir}/kanidm/ui/pkg
 
 ## End install
 
