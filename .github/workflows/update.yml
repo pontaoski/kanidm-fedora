@@ -22,7 +22,7 @@ jobs:
         run: |
           NEW_VERSION="${{ steps.getrelease.outputs.release }}"
           NEW_VERSION="${NEW_VERSION:1}"
-          sed -i 's/Version:.*$/Version: ${NEW_VERSION}/' kanidm.spec
+          sed -i "s/Version:.*\$/Version: ${NEW_VERSION}/" kanidm.spec
           head -n 30 kanidm.spec
           if [[ $(git diff kanidm.spec) ]]; then
             echo "new release available"
@@ -51,7 +51,7 @@ jobs:
         run: |
           NEW_VERSION="${{ steps.getrelease.outputs.release }}"
           NEW_VERSION="${NEW_VERSION:1}"
-          sed -i 's/Version:.*$/Version: ${NEW_VERSION}/' kanidm.spec
+          sed -i "s/Version:.*\$/Version: ${NEW_VERSION}/" kanidm.spec
           head -n 30 kanidm.spec
       - name: Commit new spec file
         run: |
