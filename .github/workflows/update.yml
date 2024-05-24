@@ -47,21 +47,23 @@ jobs:
           branch: ${{ github.ref }}
       - name: Trigger COPR build
         run: |
-          JSON_PAYLOAD << EOF
+          JSON_PAYLOAD=$(
+          cat << EOF
           {
-            "clone_url": "https://github.com/jcrawfordor/kanidm-fedora.git",
-            "committish": "main",
-            "spec": "kanidm.spec",
-            "background": true,
-            "enable_net": true,
-            "ownername": "@jbcrawford",
-            "projectname": "kanidm",
-            "scm_type": "git",
-            "source_build_method": "rpkg"
+          "clone_url": "https://github.com/jcrawfordor/kanidm-fedora.git",
+          "committish": "main",
+          "spec": "kanidm.spec",
+          "background": true,
+          "enable_net": true,
+          "ownername": "jbcrawford",
+          "projectname": "kanidm",
+          "scm_type": "git",
+          "source_build_method": "rpkg"
           }
           EOF
+          )
           curl --header "Content-Type: application/json" \
-            --user "Y29wcg==##mqyebjayicbgpvpvmmlo:${{ secrets.COPR_TOKEN }}"
+            --user "${{ secrets.COPR_LOGIN }}:${{ secrets.COPR_TOKEN }}" \
             --request POST \
             --data "$JSON_PAYLOAD" \
             https://copr.fedorainfracloud.org/api_3/build/create/scm
