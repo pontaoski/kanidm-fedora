@@ -17,15 +17,16 @@ jobs:
           repo: kanidm
           token: ${{ secrets.GITHUB_TOKEN }}
           excludes: prerelease, draft
-      - name: Update specfile version
-        run: |
-          sed -i 's/Version:.*$/Version: ${{ steps.getrelease.outputs.release }}/' kanidm.spec
       - id: set_output
         name: Set Output
         run: |
+          sed -i 's/Version:.*$/Version: ${{ steps.getrelease.outputs.release }}/' kanidm.spec
+          head -n 30 kanidm.spec
           if [[ $(git diff kanidm.spec) ]]; then
+            echo "new release available"
             echo "::set-output name=new_release::true"
           else
+            echo "no new release available"
             echo "::set-output name=new_release::false"
           fi
 
