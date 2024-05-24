@@ -35,6 +35,20 @@ jobs:
     if: needs.check_release.outputs.new_release == 'true'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - id: getrelease
+        name: Get latest release
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          owner: kanidm
+          repo: kanidm
+          token: ${{ secrets.GITHUB_TOKEN }}
+          excludes: prerelease, draft
+      - id: set_output
+        name: Set Output
+        run: |
+          sed -i 's/Version:.*$/Version: ${{ steps.getrelease.outputs.release }}/' kanidm.spec
+          head -n 30 kanidm.spec
       - name: Commit new spec file
         run: |
           git config --local user.email "github-actions-bot@users.noreply.github.com"
