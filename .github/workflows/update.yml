@@ -1,0 +1,38 @@
+name: Release
+on:
+  workflow_dispatch:
+
+jobs:
+  check_release:
+    runs-on: ubuntu-latest
+    outputs:
+      new_release: ${{ steps.set_output.outputs.run_jobs }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: getrelease
+        name: Get latest release
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          owner: kanidm
+          repo: kanidm
+          token: ${{ secrets.GITHUB_TOKEN }}
+          excludes: prerelease, draft
+      - name: Update specfile version
+        run: |
+          sed -i 's/Version:.*$/Version: ${{ steps.getrelease.outputs.release }}/' kanidm.spec
+      - id: set_output
+        name: Set Output
+        run: |
+          if [[ $(git diff kanidm.spec) ]]; then
+            echo "::set-output name=new_release::true"
+          else
+            echo "::set-output name=new_release::false"
+          fi
+
+  build_release:
+    needs: [check_release]
+    if: needs.check_release.outputs.new_release == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Commit new spec file
+        run: echo "This would commit the new spec file"
