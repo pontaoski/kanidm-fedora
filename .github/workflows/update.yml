@@ -24,10 +24,10 @@ jobs:
           head -n 30 kanidm.spec
           if [[ $(git diff kanidm.spec) ]]; then
             echo "new release available"
-            echo "::set-output name=new_release::true"
+            echo "new_release=true" >> $GITHUB_OUTPUT
           else
             echo "no new release available"
-            echo "::set-output name=new_release::false"
+            echo "new_release=false" >> $GITHUB_OUTPUT
           fi
 
   build_release:
