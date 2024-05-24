@@ -6,7 +6,7 @@ jobs:
   check_release:
     runs-on: ubuntu-latest
     outputs:
-      new_release: ${{ steps.set_output.outputs.run_jobs }}
+      new_release: ${{ steps.set_output.outputs.new_release }}
     steps:
       - uses: actions/checkout@v4
       - id: getrelease
