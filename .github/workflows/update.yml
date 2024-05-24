@@ -36,4 +36,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Commit new spec file
-        run: echo "This would commit the new spec file"
+        run: |
+          git config --local user.email "github-actions-bot@users.noreply.github.com"
+          git config --local user.name "github-actions-bot"
+          git commit -a -m "Update specfile version"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+      - name: Trigger COPR build
+        run: |
+          echo "This would trigger the COPR build"
