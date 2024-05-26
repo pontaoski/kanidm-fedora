@@ -15,8 +15,8 @@
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
 
-%define kanidm_rpm_version  1.1.0~rc.15
-%define kanidm_actual_version  1.1.0-rc.15
+%define kanidm_rpm_version  1.1.0~beta.13
+%define kanidm_actual_version   1.1.0-beta.13
 
 Name:           kanidm
 Version:        %{kanidm_rpm_version}
